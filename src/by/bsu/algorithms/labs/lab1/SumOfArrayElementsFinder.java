@@ -1,6 +1,6 @@
-package com.company.lab1;
+package by.bsu.algorithms.labs.lab1;
 
-import com.company.utils.Pair;
+import by.bsu.algorithms.labs.utils.Pair;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

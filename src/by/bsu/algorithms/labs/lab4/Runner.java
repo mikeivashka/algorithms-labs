@@ -1,4 +1,4 @@
-package com.company.lab4;
+package by.bsu.algorithms.labs.lab4;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

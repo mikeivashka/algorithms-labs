@@ -1,4 +1,4 @@
-package com.company.utils;
+package by.bsu.algorithms.labs.utils;
 
 public class Pair <T1, T2>{
     private final T1 first;

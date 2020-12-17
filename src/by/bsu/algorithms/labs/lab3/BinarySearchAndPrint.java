@@ -1,8 +1,8 @@
-package com.company.lab3;
+package by.bsu.algorithms.labs.lab3;
 
 import java.util.Scanner;
 
-import static com.company.lab2.BinarySearch.binarySearch;
+import static by.bsu.algorithms.labs.lab2.BinarySearch.binarySearch;
 
 public class BinarySearchAndPrint {
     public static void recursivePrint(int[] arr, int startIndex) {

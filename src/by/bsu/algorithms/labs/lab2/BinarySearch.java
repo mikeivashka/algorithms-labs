@@ -1,4 +1,4 @@
-package com.company.lab2;
+package by.bsu.algorithms.labs.lab2;
 
 public class BinarySearch {
     public static int binarySearch(int[] sortedArray, int key, int low, int high) {
