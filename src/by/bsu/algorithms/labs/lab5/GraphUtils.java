@@ -1,7 +1,6 @@
 package by.bsu.algorithms.labs.lab5;
 
 import by.bsu.algorithms.labs.lab5.node.BinaryTreeNode;
-import by.bsu.algorithms.labs.lab5.tree.AbstractGraphUtils;
 import by.bsu.algorithms.labs.lab5.tree.impl.BinaryTree;
 import lombok.Getter;
 import org.jgrapht.Graph;

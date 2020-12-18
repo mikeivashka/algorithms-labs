@@ -1,6 +1,5 @@
 package by.bsu.algorithms.labs.lab5;
 
-import by.bsu.algorithms.labs.lab5.tree.AbstractGraphUtils;
 import by.bsu.algorithms.labs.lab5.tree.BPlusTree;
 import lombok.Getter;
 import org.jgrapht.Graph;
@@ -24,7 +23,7 @@ public class BPlusGraphUtils extends AbstractGraphUtils<String> {
         var tree = new BPlusTree(m);
         Random random = new Random(System.currentTimeMillis());
         for (int i = 0; i < verticesCount; i++) {
-            tree.insert(random.nextInt(maxValueBand) + minValueBand + 1);
+            tree.add(random.nextInt(maxValueBand) + minValueBand + 1);
         }
         return tree;
     }

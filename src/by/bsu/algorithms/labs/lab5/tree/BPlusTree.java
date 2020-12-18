@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.*;
 
-public class BPlusTree {
+public class BPlusTree implements Tree {
     int m;
     @Getter
     private InternalNode root;
@@ -14,6 +14,14 @@ public class BPlusTree {
     public BPlusTree(int m) {
         this.m = m;
         this.root = null;
+    }
+
+    @Override
+    public void delete(int value) {
+        LeafNode node = this.findLeafNode(value);
+        int indexToDelete = binarySearch(node.values, node.numPairs, value);
+        if(indexToDelete >= 0)node.delete(indexToDelete);
+        if(node.isDeficient())handleDeficiency(node.parent);
     }
 
     // Binary search program
@@ -33,16 +41,13 @@ public class BPlusTree {
 
     // Find the leaf node
     private LeafNode findLeafNode(int key) {
-
         Integer[] keys = this.root.values;
         int i;
-
         for (i = 0; i < this.root.degree - 1; i++) {
             if (key < keys[i]) {
                 break;
             }
         }
-
         Node child = this.root.childPointers[i];
         if (child instanceof LeafNode) {
             return (LeafNode) child;
@@ -52,10 +57,8 @@ public class BPlusTree {
     }
 
     private LeafNode findLeafNode(InternalNode node, int key) {
-
         Integer[] keys = node.values;
         int i;
-
         for (i = 0; i < node.degree - 1; i++) {
             if (key < keys[i]) {
                 break;
@@ -86,10 +89,8 @@ public class BPlusTree {
 
     // Balance the tree
     private void handleDeficiency(InternalNode in) {
-
         InternalNode sibling;
         InternalNode parent = in.parent;
-
         if (this.root == in) {
             for (int i = 0; i < in.childPointers.length; i++) {
                 if (in.childPointers[i] != null) {
@@ -163,7 +164,6 @@ public class BPlusTree {
         for (int i = amount; i < pointers.length; i++) {
             newPointers[i - amount] = pointers[i];
         }
-        pointers = newPointers;
     }
 
     private Node[] splitChildPointers(InternalNode in, int split) {
@@ -180,16 +180,12 @@ public class BPlusTree {
     }
 
     private Integer[] splitDictionary(LeafNode ln, int split) {
-
         Integer[] values = ln.values;
-
         Integer[] halfDict = new Integer[this.m];
-
         for (int i = split; i < values.length; i++) {
             halfDict[i - split] = values[i];
             ln.delete(i);
         }
-
         return halfDict;
     }
 
@@ -242,7 +238,8 @@ public class BPlusTree {
         return halfKeys;
     }
 
-    public void insert(int val) {
+    @Override
+    public void add(int val) {
         if (isEmpty()) {
             LeafNode ln = new LeafNode(this.m, val);
             this.firstLeaf = ln;
@@ -297,7 +294,7 @@ public class BPlusTree {
         }
     }
 
-    public Integer lookUpFromTop(int key) {
+    public Integer findClosestFromTop(int key) {
         if (isEmpty()) {
             return null;
         }
@@ -331,19 +328,15 @@ public class BPlusTree {
 
     }
 
-    public Integer search(int key) {
+    @Override
+    public boolean containsNode(int key) {
         if (isEmpty()) {
-            return null;
+            return false;
         }
         LeafNode ln = (this.root == null) ? this.firstLeaf : findLeafNode(key);
         Integer[] dps = ln.values;
         int index = binarySearch(dps, ln.numPairs, key);
-
-        if (index < 0) {
-            return null;
-        } else {
-            return dps[index];
-        }
+        return index >= 0;
     }
 
     public List<Integer> search(int lowerBound, int upperBound) {

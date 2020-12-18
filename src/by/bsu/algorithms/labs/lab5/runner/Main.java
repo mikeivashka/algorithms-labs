@@ -16,10 +16,10 @@ public class Main {
         tree.DFS();
         System.out.println("\n" + tree.findClosestFromTop(40));
 
-        BPlusTree bPlusTree = BPlusGraphUtils.generateBinaryTree(5, 30, 0, 80);
+        BPlusTree bPlusTree = BPlusGraphUtils.generateBinaryTree(5, 12, 0, 80);
         var bPlusGraphUtils = new BPlusGraphUtils(bPlusTree);
         bPlusGraphUtils.print("graphs/bplusgraph.png");
-        System.out.println(bPlusTree.lookUpFromTop(12));
+        System.out.println(bPlusTree.findClosestFromTop(12));
         bPlusTree.DFSearch();
     }
 }
