@@ -2,6 +2,7 @@ package by.bsu.algorithms.labs.lab5;
 
 import by.bsu.algorithms.labs.lab5.node.BinaryTreeNode;
 import by.bsu.algorithms.labs.lab5.tree.impl.BinaryTree;
+import by.bsu.algorithms.labs.utils.AbstractGraphUtils;
 import lombok.Getter;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
@@ -9,11 +10,11 @@ import org.jgrapht.graph.SimpleGraph;
 
 import java.util.Random;
 
-public class GraphUtils extends AbstractGraphUtils<Integer> {
+public class BinaryTreeUtils extends AbstractGraphUtils<Integer> {
     @Getter
     private final Graph<Integer, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
 
-    public GraphUtils(BinaryTree tree) {
+    public BinaryTreeUtils(BinaryTree tree) {
         copy(tree.getRoot());
     }
 

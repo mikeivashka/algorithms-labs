@@ -1,4 +1,4 @@
-package by.bsu.algorithms.labs.lab5;
+package by.bsu.algorithms.labs.utils;
 
 import com.mxgraph.layout.hierarchical.mxHierarchicalLayout;
 import com.mxgraph.layout.mxIGraphLayout;

@@ -5,7 +5,8 @@ import lombok.Getter;
 import java.util.*;
 
 public class BPlusTree implements Tree {
-    int m;
+    @Getter
+    private final int m;
     @Getter
     private InternalNode root;
     @Getter
@@ -31,7 +32,7 @@ public class BPlusTree implements Tree {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("BPlusTree{");
+        final var sb = new StringBuilder("BPlusTree{");
         sb.append("m=").append(m);
         sb.append(", root=").append(root);
         sb.append(", firstLeaf=").append(firstLeaf);
