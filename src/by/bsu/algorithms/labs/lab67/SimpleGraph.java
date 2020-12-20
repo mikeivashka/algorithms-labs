@@ -21,6 +21,16 @@ public class SimpleGraph {
         generateVertexIndex();
     }
 
+    public SimpleGraph(List<List<Integer>> adjacencyMatrix) {
+        for (int i = 0; i < adjacencyMatrix.size(); i++) {
+            vertexList.add(new Vertex(i));
+            for (int j = 0; j < i; j++) {
+                edgeList.add(new Edge(adjacencyMatrix.get(i).get(j), vertexList.get(i), vertexList.get(j)));
+            }
+        }
+        generateVertexIndex();
+    }
+
     public List<Vertex> getVertexList() {
         return vertexList;
     }
