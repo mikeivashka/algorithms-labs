@@ -1,4 +1,4 @@
-package by.bsu.algorithms.labs.lab6;
+package by.bsu.algorithms.labs.lab67;
 
 import java.util.ArrayList;
 import java.util.Iterator;

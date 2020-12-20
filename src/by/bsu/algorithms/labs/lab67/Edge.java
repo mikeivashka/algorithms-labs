@@ -1,4 +1,4 @@
-package by.bsu.algorithms.labs.lab6;
+package by.bsu.algorithms.labs.lab67;
 
 public class Edge {
     private Vertex from;

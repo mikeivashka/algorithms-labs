@@ -1,4 +1,4 @@
-package by.bsu.algorithms.labs.lab6;
+package by.bsu.algorithms.labs.lab67;
 
 import by.bsu.algorithms.labs.utils.AbstractGraphUtils;
 import org.jgrapht.Graph;

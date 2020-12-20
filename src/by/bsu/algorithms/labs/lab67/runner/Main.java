@@ -1,9 +1,9 @@
-package by.bsu.algorithms.labs.lab6.runner;
+package by.bsu.algorithms.labs.lab67.runner;
 
-import by.bsu.algorithms.labs.lab6.Edge;
-import by.bsu.algorithms.labs.lab6.SimpleGraph;
-import by.bsu.algorithms.labs.lab6.SimpleGraphUtils;
-import by.bsu.algorithms.labs.lab6.Vertex;
+import by.bsu.algorithms.labs.lab67.Edge;
+import by.bsu.algorithms.labs.lab67.SimpleGraph;
+import by.bsu.algorithms.labs.lab67.SimpleGraphUtils;
+import by.bsu.algorithms.labs.lab67.Vertex;
 
 import java.io.IOException;
 import java.util.ArrayList;
