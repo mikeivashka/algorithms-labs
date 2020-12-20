@@ -8,11 +8,14 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Vertex {
+    private final List<Edge> edges = new ArrayList<>();
     private int value = 0;
     @Getter
     @Setter
     private boolean visited;
-    private final List<Edge> edges = new ArrayList<>();
+    @Setter
+    @Getter
+    private int color;
 
     public Vertex(int value) {
         this.value = value;
@@ -26,7 +29,7 @@ public class Vertex {
         return edges;
     }
 
-    public void addEdge(Edge e){
+    public void addEdge(Edge e) {
         edges.add(e);
     }
 
@@ -102,7 +105,8 @@ public class Vertex {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("Value=").append(value).append("\n");
+        builder.append("Value=").append(value).append(", Color=")
+                .append(color).append("\n");
         for (Edge e : edges)
             builder.append("\t").append(e.toString());
         return builder.toString();

@@ -66,6 +66,10 @@ public class Main {
 
         graph.bfSearch();
 
+
+        graph.paintVertices();
+        System.out.println(graph.getVertexList());
+
         try {
             new SimpleGraphUtils(graph).print("graphs/simplegraph.png");
         } catch (IOException e) {

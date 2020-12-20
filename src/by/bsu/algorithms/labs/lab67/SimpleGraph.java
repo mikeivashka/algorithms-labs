@@ -120,8 +120,28 @@ public class SimpleGraph {
                         }
                     });
         }
+        System.out.println("\n");
     }
 
+    public void paintVertices() {
+        List<Vertex> verticesCopy = new ArrayList<>(vertexList);
+        int currentColor = 1;
+        int paintedVertices = 0;
+        verticesCopy.sort(Comparator.comparingInt(v -> v.getEdges().size()));
+        verticesCopy.get(0).setColor(currentColor);
+        for (currentColor = 1; currentColor <= vertexList.size() && paintedVertices < vertexList.size(); currentColor++) {
+            int finalCurrentColor = currentColor;
+            for (int j = currentColor - 1; j < verticesCopy.size(); j++) {
+                if (verticesCopy.get(j).getColor() == 0 && verticesCopy.get(j).getEdges().stream()
+                        .noneMatch(e -> e.getToVertex().getColor() == finalCurrentColor || e.getFromVertex().getColor() == finalCurrentColor)
+                ) {
+                    verticesCopy.get(j).setColor(currentColor);
+                    paintedVertices++;
+                }
+            }
+
+        }
+    }
 
     public void printAdjacencyMatrix() {
         byte[][] am = this.toAdjacencyMatrix();
