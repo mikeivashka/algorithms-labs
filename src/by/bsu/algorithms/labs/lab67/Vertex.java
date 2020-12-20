@@ -1,20 +1,21 @@
 package by.bsu.algorithms.labs.lab67;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Vertex {
     private int value = 0;
-    private List<Edge> edges = new ArrayList<>();
+    @Getter
+    @Setter
+    private boolean visited;
+    private final List<Edge> edges = new ArrayList<>();
 
     public Vertex(int value) {
         this.value = value;
-    }
-
-    public Vertex(Vertex vertex){
-        this(vertex.value);
-        this.edges.addAll(vertex.edges);
     }
 
     public int getValue() {

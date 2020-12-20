@@ -22,6 +22,8 @@ public class Main {
         vertices.add(v4);
         Vertex v5 = new Vertex(5);
         vertices.add(v5);
+        Vertex v6 = new Vertex(7);
+        vertices.add(v6);
 
 
         final List<Edge> edges = new ArrayList<>();
@@ -37,6 +39,8 @@ public class Main {
         edges.add(e5);
         Edge e6 = new Edge(2, v3, v4).addEdgeFromVertex();
         edges.add(e6);
+        Edge e7 = new Edge(10, v3, v6).addEdgeFromVertex();
+        edges.add(e7);
 
         SimpleGraph graph = new SimpleGraph(vertices, edges);
 
@@ -56,7 +60,11 @@ public class Main {
 
         graph.removeVertex(new Vertex(6));
         graph.printAdjacencyMatrix();
-        System.out.println(graph.getEdgeList());
+        System.out.println(graph.getEdgeList() + "\n");
+
+
+
+        graph.bfSearch();
 
         try {
             new SimpleGraphUtils(graph).print("graphs/simplegraph.png");

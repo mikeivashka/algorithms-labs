@@ -9,11 +9,9 @@ public class SimpleGraph {
 
     public SimpleGraph(SimpleGraph g) {
         for (Vertex v : g.getVertexList()) {
-            this.vertexList.add(new Vertex(v));
+            this.vertexList.addAll(g.vertexList);
         }
-        for (Edge e : g.getEdgeList()) {
-            this.edgeList.add(new Edge(e));
-        }
+        this.edgeList.addAll(g.getEdgeList());
         generateVertexIndex();
     }
 
@@ -101,6 +99,29 @@ public class SimpleGraph {
 
         return adjMatrix;
     }
+
+    public void bfSearch() {
+        bfs(vertexList.get(0));
+    }
+
+    private void bfs(Vertex start) {
+        var toVisit = new LinkedList<Vertex>();
+        System.out.print(start.getValue() + " -> ");
+        toVisit.add(start);
+        start.setVisited(true);
+        while (!toVisit.isEmpty()) {
+            var currentVertex = toVisit.remove();
+            currentVertex.getEdges()
+                    .forEach(edge -> {
+                        if (!edge.getToVertex().isVisited()) {
+                            toVisit.add(edge.getToVertex());
+                            System.out.print(edge.getToVertex().getValue() + " -> ");
+                            edge.getToVertex().setVisited(true);
+                        }
+                    });
+        }
+    }
+
 
     public void printAdjacencyMatrix() {
         byte[][] am = this.toAdjacencyMatrix();

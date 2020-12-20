@@ -20,10 +20,6 @@ public class Edge {
         this.to = to;
     }
 
-    public Edge(Edge e) {
-        this(e.cost, e.from, e.to);
-    }
-
     public int getCost() {
         return cost;
     }
@@ -87,8 +83,7 @@ public class Edge {
     }
 
     public Edge addEdgeFromVertex() {
-        Edge edge = new Edge(new Edge(this.cost, this.from, this.to));
-        this.from.addEdge(edge);
-        return edge;
+        this.from.addEdge(this);
+        return this;
     }
 }
